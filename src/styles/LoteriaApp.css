@@ -1,0 +1,14 @@
+/* src/styles/LoteriaApp.css */
+.loteria-app {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.sorteo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
