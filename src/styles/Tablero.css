@@ -1,41 +1,39 @@
 /* src/styles/Tablero.css */
 .tablero-container {
     width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .tablero {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 5px;
+    margin-bottom: 20px;
 }
 
-.cell {
+.tablero-number {
     width: 50px;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
-    border: 1px solid black;
-    font-size: 18px;
+    border: 1px solid #000;
+    cursor: pointer;
 }
 
-.cell.selected {
-    background-color: green;
-    color: white;
+.selected {
+    background-color: #b3d9ff;
 }
 
-.cell.last {
+.highlight {
     background-color: red;
     color: white;
 }
 
-.clear-button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    font-size: 16px;
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
     cursor: pointer;
+    border-radius: 5px;
 }

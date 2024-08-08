@@ -9,13 +9,13 @@ const Tablero = ({ selectedNumbers, lastNumber, onClear }) => {
                 {Array.from({ length: 90 }, (_, i) => i + 1).map((number) => (
                     <div
                         key={number}
-                        className={`cell ${selectedNumbers.includes(number) ? 'selected' : ''} ${lastNumber === number ? 'last' : ''}`}
+                        className={`tablero-number ${selectedNumbers.includes(number) ? (number === lastNumber ? 'highlight' : 'selected') : ''}`}
                     >
                         {number}
                     </div>
                 ))}
             </div>
-            <button onClick={onClear} className="clear-button">Limpiar</button>
+            <button onClick={onClear}>Limpiar Tablero</button>
         </div>
     );
 };

@@ -2,14 +2,15 @@
 import React, { useState } from 'react';
 import Tablero from './Tablero';
 import Sorteo from './Sorteo';
-import Numero from './Numero';
+import Espera from './Espera';
 import '../styles/LoteriaApp.css';
 
 const LoteriaApp = () => {
     const [selectedNumbers, setSelectedNumbers] = useState([]);
     const [lastNumber, setLastNumber] = useState(null);
     const [timer, setTimer] = useState(30);
-    const [isPaused, setIsPaused] = useState(false);
+    const [isPaused, setIsPaused] = useState(true);
+    const [isStarted, setIsStarted] = useState(false);
 
     const handleNumberSelect = (number) => {
         setSelectedNumbers([...selectedNumbers, number]);
@@ -19,10 +20,18 @@ const LoteriaApp = () => {
     const handleClear = () => {
         setSelectedNumbers([]);
         setLastNumber(null);
+        setIsPaused(true);
+        setIsStarted(false);
+        setTimer(30);
     };
 
-    const togglePause = () => {
-        setIsPaused(!isPaused);
+    const handleStart = () => {
+        if (!isStarted) {
+            setIsStarted(true);
+            setIsPaused(false);
+        } else {
+            setIsPaused(!isPaused);
+        }
     };
 
     return (
@@ -31,12 +40,15 @@ const LoteriaApp = () => {
                 <Sorteo
                     selectedNumbers={selectedNumbers}
                     onNumberSelect={handleNumberSelect}
-                    timer={timer}
-                    setTimer={setTimer}
                     isPaused={isPaused}
-                    togglePause={togglePause}
+                    setTimer={setTimer}
+                    timer={timer}
+                    setIsPaused={setIsPaused}
                 />
-                <Numero timer={timer} />
+                <Espera timer={timer} />
+                <button onClick={handleStart}>
+                    {isStarted ? (isPaused ? 'Continuar' : 'Pausar') : 'Inicio'}
+                </button>
             </div>
             <Tablero
                 selectedNumbers={selectedNumbers}
