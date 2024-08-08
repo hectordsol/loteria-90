@@ -1,0 +1,28 @@
+/* src/styles/Salidos.css */
+.salidos {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #ffeb3b;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.salidos h3 {
+    margin-bottom: 10px;
+}
+
+.salidos-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+}
+
+.salido-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+}

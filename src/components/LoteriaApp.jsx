@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Tablero from './Tablero';
 import Sorteo from './Sorteo';
 import Espera from './Espera';
+import Salidos from './Salidos';
 import '../styles/LoteriaApp.css';
 
 const LoteriaApp = () => {
@@ -49,14 +50,18 @@ const LoteriaApp = () => {
                 <button onClick={handleStart}>
                     {isStarted ? (isPaused ? 'Continuar' : 'Pausar') : 'Inicio'}
                 </button>
+                <Salidos selectedNumbers={selectedNumbers} />
             </div>
-            <Tablero
-                selectedNumbers={selectedNumbers}
-                lastNumber={lastNumber}
-                onClear={handleClear}
-            />
+            <div className="tablero-container">
+                <Tablero
+                    selectedNumbers={selectedNumbers}
+                    lastNumber={lastNumber}
+                    onClear={handleClear}
+                />
+            </div>
         </div>
     );
 };
 
 export default LoteriaApp;
+
