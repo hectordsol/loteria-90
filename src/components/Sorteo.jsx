@@ -6,9 +6,16 @@ const handleSorteo = (selectedNumbers) => {
     let newNumber;
     do{
         newNumber = Math.floor(Math.random() * 90) + 1;
-    } while (selectedNumbers.includes(newNumber))
+    } while (selectedNumbers.includes(newNumber));
+    anunciarNumero(newNumber);
     return newNumber;
 };
+const anunciarNumero = (numero) => {
+    const utterance = new SpeechSynthesisUtterance(numero.toString());
+    utterance.lang = 'es-ES'; // Español
+    utterance.voice = speechSynthesis.getVoices().find(voice => voice.name === 'Google español');
+    speechSynthesis.speak(utterance);
+  };
 
 const Sorteo = ({ selectedNumbers, onNumberSelect, isInitiated, isStarted, isPaused, setTimer, timer,
      setIsInitiated, initialTimer}) => {
