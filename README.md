@@ -1,4 +1,5 @@
 # WebApp LoteriaApp 
+![image](https://github.com/user-attachments/assets/1be324af-73a2-47b4-b12b-5f1954425df5)
 Es un Tablero por un lado (con números del 1 al 90, que se pueda limpiar con un botón limpiar). 
 
 Tiene Sorteo automatizado, que es el generador aleatorio de números del 1 al 90, que al apretar inicio el primer número muestra sin esperar, y va marcando en el tablero mientras van saliendo en color rojo el último que salió, y que cada 30 segundos por defecto, sale un nuevo número. Un audio indica el número que sale.
