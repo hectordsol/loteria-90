@@ -10,7 +10,7 @@ import '../styles/LoteriaApp.css';
 const LoteriaApp = () => {
     const [selectedNumbers, setSelectedNumbers] = useState([]);
     const [lastNumber, setLastNumber] = useState(null);
-    const [timer, setTimer] = useState(30);
+    const [timer, setTimer] = useState(10);
     const [initialTimer, setInitialTimer] = useState(timer);
     const [isPaused, setIsPaused] = useState(true);
     const [isStarted, setIsStarted] = useState(false);
