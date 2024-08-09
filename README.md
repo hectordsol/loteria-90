@@ -1,3 +1,26 @@
+# WebApp LoteriaApp 
+Es un Tablero por un lado (con números del 1 al 90, que se pueda limpiar con un botón limpiar). 
+
+Tiene Sorteo automatizado, que es el generador aleatorio de números del 1 al 90, que al apretar inicio el primer número muestra sin esperar, y va marcando en el tablero mientras van saliendo en color rojo el último que salió, y que cada 30 segundos por defecto, sale un nuevo número. 
+
+Tiene tiempo de Espera que sería el tiempo que falta para generar el siguiente número aleatorios, no debería repitir número (simulando como si fueran números de un bolillero). 
+
+Arriba de la parte del Sorteo se puede modificar el tiempo de espera con las flechas.
+
+Tiene un botón para iniciar, que luego sea para hacer pausa y que el mismo puede usarse para continuar (haciendo que muestre los segundos restantes para el siguiente número). 
+
+Tiene un contenedor Salidos en el mismo contenedor de Sorteo pero que se muestre abajo, que va mostrando en forma secuencial hasta 10 por fila, los números que van saliendo.
+
+# ChatGPT
+Este código fue en principio generado por ChatGPT con las siguientes intrucciones:
+Podrías crear el código de una aplicación web con React que en App.js solo importe de una carpeta src/components, LoteriaApp, y que LoteriaApp importe el código de Tablero por un lado (números del 1 al 90, que se pueda limpiar el tablero con un botón limpiar) que lo muestre a la derecha del contenedor y a la izquierda, que importe dos componentes, uno, el Sorteo, que es el generador aleatorio de números del 1 al 90, al apretar inicio el primer número lo muestre sin esperar, que vaya marcando en el tablero mientras van saliendo, que sea rojo el último que salió y que cada 30 segundos salga un nuevo número. Debería importa Espera que sería el tiempo que falta para generar el siguiente número aleatorios, que no repita el número (simulando como si fueran números de un bolillero). Debería tener el botón para iniciar, que luego sea para hacer pausa y que el mismo pueda usarse para continuar (haciendo que Espera muestre los segundos restantes para el siguiente número). ¿Podrías generar el estilo de cada archivo? LoteriaApp, Tablero, Sorteo, Espera. Ten en cuenta que cuando se limpia el tablero, el botón debe quedar de nuevo en inicio. ¿Podrias agregar al contenedor principal de LoteriaApp un tablero Salidos en el mismo contenedor de Sorteo pero que se muestre abajo, con su estilo en archivo aparte también, que vaya mostrando en forma secuencial hasta 10 por fila, los números que van saliendo?
+
+Luego le pedí:
+
+¿Podrías agregarme un componente que sea TiempoEspera que tenga un botón para incrementar que muestre una flecha arriba, otro botón para disminuir que muestre una flecha abajo, y que muestre el tiempo de espera seleccionado entre medio de los dos botones?
+
+Tuve que hacerle algunos cambios en la lógica del código porque cuando iniciaba esperaba 30 segundos en el primer número.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
