@@ -1,7 +1,7 @@
 # WebApp LoteriaApp 
 Es un Tablero por un lado (con números del 1 al 90, que se pueda limpiar con un botón limpiar). 
 
-Tiene Sorteo automatizado, que es el generador aleatorio de números del 1 al 90, que al apretar inicio el primer número muestra sin esperar, y va marcando en el tablero mientras van saliendo en color rojo el último que salió, y que cada 30 segundos por defecto, sale un nuevo número. 
+Tiene Sorteo automatizado, que es el generador aleatorio de números del 1 al 90, que al apretar inicio el primer número muestra sin esperar, y va marcando en el tablero mientras van saliendo en color rojo el último que salió, y que cada 30 segundos por defecto, sale un nuevo número. Un audio indica el número que sale.
 
 Tiene tiempo de Espera que sería el tiempo que falta para generar el siguiente número aleatorios, no debería repitir número (simulando como si fueran números de un bolillero). 
 
@@ -21,6 +21,7 @@ Luego le pedí:
 
 Tuve que hacerle algunos cambios en la lógica del código porque cuando iniciaba esperaba 30 segundos en el primer número.
 
+Instrucción para pedir que agregue sonido: ¿para la aplicación de la LoteriaApp, se puede hacer que cuando salga un número diga ese número con audio de una mujer nombrando el número?
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
