@@ -4,14 +4,17 @@ import Tablero from './Tablero';
 import Sorteo from './Sorteo';
 import Espera from './Espera';
 import Salidos from './Salidos';
+import TiempoEspera from './TiempoEspera';
 import '../styles/LoteriaApp.css';
 
 const LoteriaApp = () => {
     const [selectedNumbers, setSelectedNumbers] = useState([]);
     const [lastNumber, setLastNumber] = useState(null);
     const [timer, setTimer] = useState(30);
+    const [initialTimer, setInitialTimer] = useState(timer);
     const [isPaused, setIsPaused] = useState(true);
     const [isStarted, setIsStarted] = useState(false);
+    const [isInitiated, setIsInitiated] = useState(false);
 
     const handleNumberSelect = (number) => {
         setSelectedNumbers([...selectedNumbers, number]);
@@ -23,7 +26,9 @@ const LoteriaApp = () => {
         setLastNumber(null);
         setIsPaused(true);
         setIsStarted(false);
-        setTimer(30);
+        setIsPaused(true);
+        setIsInitiated(false);
+        setTimer(initialTimer);
     };
 
     const handleStart = () => {
@@ -35,16 +40,36 @@ const LoteriaApp = () => {
         }
     };
 
+    const handleIncrementTimer = () => {
+        setInitialTimer(initialTimer + 1);
+    };
+
+    const handleDecreaseTimer = () => {
+        if (initialTimer > 1) {
+            setInitialTimer(initialTimer - 1);
+        }
+    };
+
     return (
         <div className="loteria-app">
             <div className="sorteo-container">
+                <h2>Tiempo de espera
+                <TiempoEspera
+                    timer={initialTimer}
+                    onIncrement={handleIncrementTimer}
+                    onDecrease={handleDecreaseTimer}
+                />
+                </h2>
                 <Sorteo
                     selectedNumbers={selectedNumbers}
                     onNumberSelect={handleNumberSelect}
+                    isInitiated={isInitiated}
+                    isStarted={isStarted}
                     isPaused={isPaused}
                     setTimer={setTimer}
                     timer={timer}
-                    setIsPaused={setIsPaused}
+                    setIsInitiated={setIsInitiated}
+                    initialTimer={initialTimer}
                 />
                 <Espera timer={timer} />
                 <button onClick={handleStart}>

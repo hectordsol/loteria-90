@@ -2,26 +2,37 @@
 import React, { useEffect } from 'react';
 import '../styles/Sorteo.css';
 
-const Sorteo = ({ selectedNumbers, onNumberSelect, isPaused, setTimer, timer, setIsPaused }) => {
+const handleSorteo = (selectedNumbers) => {
+    let newNumber;
+    do{
+        newNumber = Math.floor(Math.random() * 90) + 1;
+    } while (selectedNumbers.includes(newNumber))
+    return newNumber;
+};
+
+const Sorteo = ({ selectedNumbers, onNumberSelect, isInitiated, isStarted, isPaused, setTimer, timer,
+     setIsInitiated, initialTimer}) => {
     useEffect(() => {
         let interval;
-        if (!isPaused) {
+        if (isStarted && !isInitiated){
+            let numberOne = handleSorteo(selectedNumbers)
+            onNumberSelect(numberOne);
+            setIsInitiated(true)       
+        }
+        else
+        if (!isPaused && isStarted) {
             interval = setInterval(() => {
                 if (timer > 0) {
                     setTimer(timer - 1);
                 } else {
-                    let newNumber;
-                    do {
-                        newNumber = Math.floor(Math.random() * 90) + 1;
-                    } while (selectedNumbers.includes(newNumber));
-
+                    let newNumber = handleSorteo(selectedNumbers)
                     onNumberSelect(newNumber);
-                    setTimer(30);
+                    setTimer(initialTimer);
                 }
             }, 1000);
         }
         return () => clearInterval(interval);
-    }, [isPaused, timer, selectedNumbers, setTimer, onNumberSelect]);
+    }, [isInitiated, isStarted, isPaused, timer, selectedNumbers, setTimer, onNumberSelect, setIsInitiated, initialTimer]);
 
     return (
         <div>
